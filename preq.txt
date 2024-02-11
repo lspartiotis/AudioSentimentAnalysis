@@ -1,0 +1,2 @@
+pyAudioAnalysis
+matplotlib
