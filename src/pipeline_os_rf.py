@@ -34,8 +34,8 @@ param_grid_svc = {
 }
 
 # Initialize a Random Forest classifier
-rf = SVC(probability=True)
-#rf = RandomForestClassifier(random_state=42)
+#rf = SVC(probability=True)
+rf = RandomForestClassifier(random_state=42)
 
 # Create a pipeline that first applies SMOTE and then fits the Random Forest classifier
 pipeline = Pipeline([
@@ -50,7 +50,7 @@ if oversample == True:
 kf = KFold(n_splits=5, shuffle=True, random_state=42)
 # Initialize the Grid Search model with cross-validation
 # estimator = pipeline
-grid_search = GridSearchCV(estimator=rf, param_grid=param_grid_svc, cv=kf, scoring='accuracy', n_jobs=-1, verbose=1)
+grid_search = GridSearchCV(estimator=pipeline, param_grid=param_gridrf, cv=kf, scoring='accuracy', n_jobs=-1, verbose=1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y, shuffle=True)
 grid_search.fit(X_train, y_train)
 
