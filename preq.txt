@@ -1,5 +1,0 @@
-pyAudioAnalysis
-pandas 
-pickle
-numpy
-matplotlib

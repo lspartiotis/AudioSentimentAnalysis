@@ -110,7 +110,9 @@ def audio_feature_extraction(deam_audio_path, pkl_path, shortTerm = False):
                     filename = filename.split('/')[-1]
                     wav_file_list2[i] = filename.split('.')[0]
 
-            wavFeatures_df.columns = [mid_feature_names]
+            #wavFeatures_df.columns = [mid_feature_names]
+            wavFeatures_df.columns = mid_feature_names
+
             wavFeatures_df['song_id'] = wav_file_list2
 
             pickle.dump(wavFeatures_df, f)
