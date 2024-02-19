@@ -134,6 +134,9 @@ def csv_to_pd(csv_path):
 
 #aa = audio_feature_extraction('../../data/archive/DEAM_audio/MEMD_audio/', './data/sample.pkl', False)
 
-run = pkl_to_pd('./data/sample.pkl')
-print(run.head())
-print(run.tail())
+pickledf = pkl_to_pd('./data/sample.pkl')
+print(pickledf.head())
+print(pickledf.tail())
+
+#run = pickledf.to_csv('./data/mid_features.csv', sep='\t', encoding='utf-8')
+
