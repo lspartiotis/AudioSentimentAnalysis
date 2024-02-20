@@ -43,15 +43,16 @@ pipeline = Pipeline([
     ('classifier', rf)
 ])
 
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y, shuffle=True)
 if oversample == True:
     sm = SMOTE(random_state=42)
-    X, y = sm.fit_resample(X, y)
+    X_train, y_train = sm.fit_resample(X_train, y_train)
 # Define the KFold cross-validator
-kf = KFold(n_splits=5, shuffle=True, random_state=42)
+kf = KFold(n_splits=5, shuffle=True, random_state=42) 
 # Initialize the Grid Search model with cross-validation
 # estimator = pipeline
 grid_search = GridSearchCV(estimator=pipeline, param_grid=param_gridrf, cv=kf, scoring='accuracy', n_jobs=-1, verbose=1)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y, shuffle=True)
 grid_search.fit(X_train, y_train)
 
 best_params = grid_search.best_params_
