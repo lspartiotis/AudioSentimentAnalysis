@@ -1,4 +1,4 @@
-from final_rf import *
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -20,3 +20,4 @@ sns.heatmap(cm, linecolor='white', cmap='Blues', linewidth=1, annot=True, fmt=''
 plt.title('Confusion Matrix', size=20)
 plt.xlabel('Predicted Labels', size=4)
 plt.ylabel('Actual Labels YTRAIN', size=4)
+
